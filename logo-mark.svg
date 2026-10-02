@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-labelledby="title desc">
+  <title id="title">Estimate Reset mark</title>
+  <desc id="desc">A checked estimate sheet representing a clear next step.</desc>
+  <rect width="48" height="48" rx="14" fill="#315c4b"/>
+  <path d="M13 8.5h14l8 8V39H13z" fill="#fffefa"/>
+  <path d="M27 8.5v8h8" fill="none" stroke="#d9dfd4" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
+  <path d="M17.5 22h12M17.5 27h8" fill="none" stroke="#60706a" stroke-linecap="round" stroke-width="2"/>
+  <circle cx="29.5" cy="33" r="6.2" fill="#db744e"/>
+  <path d="m26.8 33 1.8 1.8 3.6-3.8" fill="none" stroke="#fffefa" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
+</svg>

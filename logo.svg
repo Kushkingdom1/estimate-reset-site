@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 52" role="img" aria-labelledby="title desc">
+  <title id="title">Estimate Reset</title>
+  <desc id="desc">An estimate sheet with its next step checked, beside the Estimate Reset wordmark.</desc>
+  <rect width="48" height="48" x="0" y="2" rx="14" fill="#315c4b"/>
+  <path d="M13 10.5h14l8 8V41H13z" fill="#fffefa"/>
+  <path d="M27 10.5v8h8" fill="none" stroke="#d9dfd4" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
+  <path d="M17.5 24h12M17.5 29h8" fill="none" stroke="#60706a" stroke-linecap="round" stroke-width="2"/>
+  <circle cx="29.5" cy="35" r="6.2" fill="#db744e"/>
+  <path d="m26.8 35 1.8 1.8 3.6-3.8" fill="none" stroke="#fffefa" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
+  <text x="62" y="34" fill="#1f302c" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="23" font-weight="720" letter-spacing="-0.9">Estimate Reset</text>
+</svg>
