@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f3ec">
+  <meta name="description" content="A $149 founding pilot for residential painting contractors in Plano and north DFW: clearer estimate scope, owner-reviewed follow-up drafts, and a simple tracker in the tools you already use.">
+  <title>Estimate Reset — Make the next step clear</title>
+  <style>
+    :root {
+      --ink: #1f302c;
+      --muted: #60706a;
+      --paper: #f5f3ec;
+      --card: #fffefa;
+      --line: #d9dfd4;
+      --green: #315c4b;
+      --mint: #dce9df;
+      --orange: #db744e;
+      --yellow: #e8bd68;
+      --shadow: 0 18px 48px rgba(31,48,44,.09);
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--sans); line-height: 1.55; }
+    a { color: inherit; }
+    .preview { padding: 9px 20px; background: var(--ink); color: #f9f7ef; text-align: center; font-size: 12px; letter-spacing: .045em; }
+    .preview strong { color: #f2cd83; font-weight: 700; }
+    .wrap { width: min(1160px, calc(100% - 44px)); margin-inline: auto; }
+    header { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 22px 0; }
+    .brand { display: flex; align-items: center; gap: 11px; text-decoration: none; font-weight: 750; letter-spacing: -.03em; font-size: 17px; }
+    .mark { width: 34px; height: 34px; border-radius: 11px 11px 11px 3px; display: grid; place-items: center; background: var(--green); color: white; font-family: var(--serif); font-size: 22px; font-weight: 400; }
+    nav { display: flex; align-items: center; gap: 27px; color: var(--muted); font-size: 13px; }
+    nav a { text-decoration: none; }
+    nav a:hover { color: var(--ink); }
+    .button { display: inline-flex; justify-content: center; align-items: center; gap: 9px; padding: 13px 19px; border-radius: 8px; border: 1px solid var(--green); background: var(--green); color: white; text-decoration: none; font-weight: 680; font-size: 13px; transition: transform .18s ease, background .18s ease; }
+    .button:hover { background: #264838; transform: translateY(-1px); }
+    .button.alt { background: transparent; color: var(--green); }
+    .button.alt:hover { background: var(--mint); }
+    .hero { display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 48px; padding: 66px 0 80px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 20px; color: var(--green); text-transform: uppercase; letter-spacing: .13em; font-size: 10px; font-weight: 800; }
+    .eyebrow::before { content: ""; width: 21px; height: 1px; background: var(--orange); }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 600px; margin-bottom: 20px; font-family: var(--serif); font-size: clamp(43px, 6vw, 70px); font-weight: 500; line-height: .99; letter-spacing: -.055em; }
+    .lede { max-width: 520px; margin-bottom: 28px; color: var(--muted); font-size: 16px; line-height: 1.7; }
+    .actions { display: flex; flex-wrap: wrap; gap: 11px; }
+    .under-cta { margin: 13px 0 0; color: #748078; font-size: 11px; }
+    .board { position: relative; min-height: 390px; padding: 25px; border: 1px solid #e3e4da; border-radius: 18px; background: #e8ebe1; box-shadow: var(--shadow); overflow: hidden; }
+    .board::after { content: ""; position: absolute; right: -42px; top: -70px; width: 190px; height: 190px; border: 1px solid rgba(49,92,75,.16); border-radius: 50%; box-shadow: 0 0 0 28px rgba(49,92,75,.035), 0 0 0 58px rgba(49,92,75,.03); }
+    .board-label { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1; color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .1em; }
+    .board-label b { color: var(--green); font-size: 10px; }
+    .quote { position: relative; z-index: 1; margin-top: 21px; padding: 19px; border: 1px solid #e7e8de; border-radius: 12px; background: var(--card); }
+    .quote-top { display: flex; justify-content: space-between; gap: 12px; font-size: 12px; font-weight: 700; }
+    .quote-top small { color: var(--muted); font-size: 10px; font-weight: 500; }
+    .job { margin: 17px 0 14px; font-family: var(--serif); font-size: 23px; line-height: 1.15; }
+    .quote-lines { display: grid; gap: 8px; }
+    .qline { display: flex; justify-content: space-between; gap: 14px; padding-bottom: 8px; border-bottom: 1px solid #edf0e9; color: #60706a; font-size: 11px; }
+    .qline b { color: var(--ink); font-weight: 650; }
+    .nextstep { display: flex; align-items: flex-start; gap: 10px; margin-top: 16px; padding: 11px 12px; border-radius: 8px; background: #eef4ed; color: var(--green); font-size: 11px; }
+    .nextstep i { flex: none; width: 7px; height: 7px; margin-top: 5px; border-radius: 50%; background: var(--orange); }
+    .nextstep strong { display: block; margin-bottom: 2px; font-size: 10px; text-transform: uppercase; letter-spacing: .07em; }
+    .sample-note { position: relative; z-index: 1; margin: 13px 0 0; color: #737c72; text-align: right; font-size: 10px; }
+    .ticker { border-block: 1px solid var(--line); background: rgba(255,255,255,.32); }
+    .ticker-row { display: grid; grid-template-columns: repeat(4,1fr); padding: 18px 0; }
+    .tick { display: flex; align-items: center; gap: 9px; justify-content: center; color: #485a50; font-size: 11px; font-weight: 650; }
+    .tick span { display: grid; place-items: center; width: 19px; height: 19px; border-radius: 50%; background: var(--mint); color: var(--green); font-size: 11px; }
+    section { padding: 86px 0; }
+    .section-head { max-width: 660px; margin-bottom: 36px; }
+    .section-head h2 { margin: 0 0 13px; font-family: var(--serif); font-size: clamp(35px, 4vw, 49px); font-weight: 500; letter-spacing: -.045em; line-height: 1.05; }
+    .section-head p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.75; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .problem-card { padding: 28px; border-radius: 13px; border: 1px solid var(--line); background: var(--card); }
+    .problem-card h3 { margin-bottom: 10px; font-family: var(--serif); font-size: 23px; font-weight: 500; }
+    .problem-card p { margin-bottom: 0; color: var(--muted); font-size: 13px; line-height: 1.75; }
+    .steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; counter-reset: step; }
+    .step { min-height: 230px; padding: 24px 23px; border-top: 2px solid var(--green); background: var(--card); counter-increment: step; }
+    .step::before { content: "0" counter(step); display: block; margin-bottom: 30px; color: var(--orange); font-family: var(--serif); font-size: 24px; }
+    .step h3 { margin: 0 0 9px; font-size: 15px; }
+    .step p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.7; }
+    .package { display: grid; grid-template-columns: .82fr 1.18fr; overflow: hidden; border-radius: 16px; background: var(--ink); color: #f7f5ec; }
+    .package-price { padding: 35px; background: var(--green); }
+    .package-price .eyebrow { color: #e3eddf; }
+    .package-price h3 { margin-bottom: 6px; font-family: var(--serif); font-size: 33px; font-weight: 500; letter-spacing: -.04em; }
+    .price { margin: 25px 0 9px; font-family: var(--serif); font-size: 46px; letter-spacing: -.05em; }
+    .price-note { max-width: 215px; color: #deeadf; font-size: 11px; line-height: 1.7; }
+    .package-detail { padding: 36px 40px; }
+    .package-detail h3 { margin: 0 0 19px; font-family: var(--serif); font-size: 25px; font-weight: 500; }
+    .included { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 22px; }
+    .included div { display: flex; gap: 9px; align-items: flex-start; color: #e3e7dd; font-size: 12px; }
+    .included span { color: #f0c879; font-weight: 800; }
+    .fine { margin: 25px 0 0; color: #aebbb0; font-size: 10px; line-height: 1.6; }
+    .trust { display: grid; grid-template-columns: .7fr 1.3fr; gap: 50px; align-items: start; padding: 34px; border: 1px solid var(--line); border-radius: 14px; background: #efeee6; }
+    .trust h2 { margin: 0; font-family: var(--serif); font-weight: 500; font-size: 33px; letter-spacing: -.035em; }
+    .guardrails { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 24px; }
+    .guardrail { display: flex; gap: 10px; color: #4c5f55; font-size: 12px; }
+    .guardrail b { color: var(--orange); }
+    .pilot { display: grid; grid-template-columns: 1fr .85fr; gap: 54px; align-items: start; }
+    .pilot h2 { max-width: 540px; margin-bottom: 15px; font-family: var(--serif); font-size: clamp(36px,4vw,49px); font-weight: 500; letter-spacing: -.045em; line-height: 1.04; }
+    .pilot-copy { max-width: 530px; color: var(--muted); font-size: 13px; line-height: 1.75; }
+    .form-card { padding: 25px; border: 1px solid var(--line); border-radius: 12px; background: var(--card); box-shadow: 0 10px 24px rgba(31,48,44,.045); }
+    .form-card label { display: block; margin: 13px 0 6px; color: #516158; font-size: 11px; font-weight: 680; }
+    .form-card input, .form-card select, .form-card textarea { width: 100%; padding: 11px 12px; border: 1px solid #d9dfd4; border-radius: 7px; background: #fff; color: var(--ink); font: inherit; font-size: 12px; }
+    .form-card textarea { min-height: 80px; resize: vertical; }
+    .form-card button { width: 100%; margin-top: 15px; cursor: pointer; }
+    .form-card :disabled { opacity: .62; cursor: not-allowed; }
+    #form-note { min-height: 22px; margin: 10px 0 0; color: #926041; font-size: 10px; line-height: 1.55; }
+    .faq { display: grid; grid-template-columns: .7fr 1.3fr; gap: 55px; }
+    .faq h2 { margin: 0; font-family: var(--serif); font-size: 39px; font-weight: 500; letter-spacing: -.04em; }
+    details { padding: 16px 0; border-bottom: 1px solid var(--line); }
+    summary { cursor: pointer; list-style: none; font-size: 13px; font-weight: 700; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; float: right; color: var(--orange); font-size: 18px; font-weight: 400; line-height: 1; }
+    details[open] summary::after { content: "−"; }
+    details p { max-width: 650px; margin: 11px 28px 2px 0; color: var(--muted); font-size: 12px; line-height: 1.75; }
+    footer { padding: 30px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; }
+    .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .footer-row a { color: var(--green); }
+    @media (max-width: 850px) {
+      nav { gap: 15px; }
+      nav .nav-optional { display: none; }
+      .hero { grid-template-columns: 1fr; gap: 30px; padding: 48px 0 55px; }
+      .board { min-height: 0; }
+      .steps { grid-template-columns: 1fr; }
+      .step { min-height: 0; }
+      .step::before { margin-bottom: 15px; }
+      .package { grid-template-columns: 1fr; }
+      .trust, .pilot, .faq { grid-template-columns: 1fr; gap: 24px; }
+    }
+    @media (max-width: 540px) {
+      .wrap { width: min(100% - 30px, 1160px); }
+      header { padding: 16px 0; }
+      nav { display: none; }
+      .head-cta { padding: 10px 12px; font-size: 11px; }
+      .hero { padding-top: 37px; }
+      .board { padding: 16px; }
+      .ticker-row { grid-template-columns: 1fr 1fr; gap: 14px 7px; }
+      .tick { justify-content: flex-start; }
+      section { padding: 62px 0; }
+      .two-col { grid-template-columns: 1fr; }
+      .package-price, .package-detail { padding: 26px 22px; }
+      .included, .guardrails { grid-template-columns: 1fr; }
+      .trust { padding: 24px; }
+      .footer-row { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <div class="preview"><strong>Founding pilot · Plano / north DFW</strong> · Three fixed-scope pilot spots at $149 each</div>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="#top" aria-label="Estimate Reset home"><span class="mark">↗</span><span>Estimate Reset</span></a>
+      <nav aria-label="Main navigation">
+        <a href="#how">How it works</a>
+        <a href="#pilot">The pilot</a>
+        <a class="nav-optional" href="#guardrails">How we work</a>
+      </nav>
+      <a class="button head-cta" href="#pilot">Explore the pilot <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <p class="eyebrow">First test market: residential painters in Plano / north DFW</p>
+          <h1 id="hero-title">The estimate is sent. Make the next step clear.</h1>
+          <p class="lede">A done-with-you estimate package: clearer scope, useful next steps, and follow-up messages that sound like your business. Set up in the tools you already use.</p>
+          <div class="actions">
+            <a class="button" href="#pilot">See the founding pilot <span aria-hidden="true">↗</span></a>
+            <a class="button alt" href="#how">How it works</a>
+          </div>
+          <p class="under-cta">No new CRM. No automatic customer messages. No promise of a specific close rate.</p>
+        </div>
+        <div class="board" aria-label="Illustrative example estimate card">
+          <div class="board-label"><span>Estimate · example</span><b>READY FOR REVIEW</b></div>
+          <div class="quote">
+            <div class="quote-top"><span>Sample Paint Co. · fictional</span><small>ESTIMATE 0248 · FICTIONAL</small></div>
+            <div class="job">Living room repaint · fictional example</div>
+            <div class="quote-lines">
+              <div class="qline"><span>Rooms and surfaces</span><b>Confirm in scope</b></div>
+              <div class="qline"><span>Preparation and finish</span><b>Owner confirmed</b></div>
+              <div class="qline"><span>Timing and next step</span><b>Written clearly</b></div>
+            </div>
+            <div class="nextstep"><i></i><div><strong>Next step</strong>Questions about the scope or timing? Reply here, or tell us when you expect to decide.</div></div>
+          </div>
+          <p class="sample-note">Fictional sample · no customer results implied</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="ticker" aria-label="Pilot principles">
+    <div class="wrap ticker-row">
+      <div class="tick"><span>✓</span>Use your current tools</div>
+      <div class="tick"><span>✓</span>One clear next action</div>
+      <div class="tick"><span>✓</span>Owner reviews every message</div>
+      <div class="tick"><span>✓</span>Measure before scaling</div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <section id="why">
+      <div class="section-head">
+        <p class="eyebrow">The gap after the quote</p>
+        <h2>Good work deserves a clear proposal.</h2>
+        <p>Customers may need time, detail, or a simple place to ask a question. The pilot helps you make the work and next step easier to understand, then gives your team a calm way to follow up.</p>
+      </div>
+      <div class="two-col">
+        <article class="problem-card">
+          <h3>Say what the price covers.</h3>
+          <p>Make the scope, assumptions, and customer choices easier to scan. Any price, availability, warranty, or material detail comes from you and is checked by you.</p>
+        </article>
+        <article class="problem-card">
+          <h3>Give every open quote an owner.</h3>
+          <p>Use a lightweight tracker to record the customer's preferred channel, next action, and decision date. Close the loop when they answer or say no.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="how">
+      <div class="section-head">
+        <p class="eyebrow">Small by design</p>
+        <h2>Review the process. Fix one thing. See what changes.</h2>
+        <p>The first version is a practical setup, not a software migration. The agent prepares research and drafts; a person checks the details and approves every customer-facing step.</p>
+      </div>
+      <div class="steps">
+        <article class="step"><h3>Walk through one estimate</h3><p>We review a redacted example and your current handoff. You choose the service, tone, tools, and customer contact rules.</p></article>
+        <article class="step"><h3>Build your estimate kit</h3><p>Receive a clearer estimate outline, editable follow-up drafts, and a simple open-quote tracker configured around your process.</p></article>
+        <article class="step"><h3>Use it for two weeks</h3><p>Track replies and decisions. Review what worked, what felt awkward, and whether the kit deserves a second version.</p></article>
+      </div>
+    </section>
+
+    <section id="pilot">
+      <div class="section-head">
+        <p class="eyebrow">Founding pilot</p>
+        <h2>A useful first system, with a clear finish line.</h2>
+        <p>The pilot tests whether a clearer estimate and owner-approved follow-up routine is valuable enough for a small team to pay for. The offer is deliberately limited while we learn.</p>
+      </div>
+      <div class="package">
+        <div class="package-price">
+          <p class="eyebrow">One-time setup</p>
+          <h3>The Estimate Reset</h3>
+          <div class="price">$149</div>
+          <p class="price-note">One-time founding price for the first three pilots. We agree the exact scope in writing before payment.</p>
+        </div>
+        <div class="package-detail">
+          <h3>One estimate journey, made easier to run.</h3>
+          <div class="included">
+            <div><span>✓</span><span>45-minute estimate-process review</span></div>
+            <div><span>✓</span><span>One-page scope and next-step checklist</span></div>
+            <div><span>✓</span><span>Three editable follow-up drafts</span></div>
+            <div><span>✓</span><span>One open-quote tracker in your existing tools</span></div>
+            <div><span>✓</span><span>Two-week check-in and change notes</span></div>
+            <div><span>✓</span><span>Clear handoff so your team can keep using it</span></div>
+          </div>
+          <p class="fine">This is a first-market test. It does not include CRM migration, automatic sending, a sales guarantee, or legal advice. Customer data is not needed for the demo; any working example should be redacted.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="guardrails">
+      <div class="trust">
+        <h2>Helpful follow-up should feel helpful.</h2>
+        <div class="guardrails">
+          <div class="guardrail"><b>01</b><span>Ask which channel the customer prefers when it is not already clear.</span></div>
+          <div class="guardrail"><b>02</b><span>Use only prices, dates, and availability the business owner confirms.</span></div>
+          <div class="guardrail"><b>03</b><span>Stop when a customer replies, declines, or asks not to be contacted.</span></div>
+          <div class="guardrail"><b>04</b><span>Every customer-facing draft is reviewed and sent by the business owner.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pilot" aria-labelledby="request-title">
+      <div>
+        <p class="eyebrow">Talk through the fit</p>
+        <h2 id="request-title">One estimate. One practical test.</h2>
+        <p class="pilot-copy">Tell us where a quote tends to stall. We’ll confirm whether the founding pilot covers that part of the process and agree on the exact deliverable first.</p>
+        <p class="pilot-copy">For a quick fit check, email a sentence about your estimate process and the tools you use. Please do not send homeowner or customer personal information.</p>
+      </div>
+      <div class="form-card">
+        <p class="eyebrow">Email for a fit check</p>
+        <h3>Start with one estimate journey.</h3>
+        <p class="pilot-copy">Tell us what kind of painting work you do, how you prepare estimates today, and where the handoff gets difficult.</p>
+        <a class="button" href="mailto:estimatereset@gmail.com?subject=Estimate%20Reset%20founding%20pilot">Email Estimate Reset <span aria-hidden="true">↗</span></a>
+        <p id="form-note">Opens a draft to <a href="mailto:estimatereset@gmail.com">estimatereset@gmail.com</a>. Your email app will not send it until you choose Send.</p>
+      </div>
+    </section>
+
+    <section class="faq" id="faq">
+      <h2>Good to know.</h2>
+      <div>
+        <details><summary>Will the agent message my customers?</summary><p>No. The agent can research, organize, and draft. The business owner reviews and sends any customer-facing message.</p></details>
+        <details><summary>Do I need new software?</summary><p>The pilot is designed for the tools you already use. We agree on the exact tracker and handoff before starting.</p></details>
+        <details><summary>Does this guarantee more booked work?</summary><p>No. The pilot measures use, replies, and next steps; it does not promise revenue or a specific conversion rate.</p></details>
+        <details><summary>Is the brand name final?</summary><p>“Estimate Reset” is a working name for this early service test. Domain, business-name, and trademark availability have not been cleared, and the name does not imply a particular registered business entity.</p></details>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <div class="wrap footer-row">
+      <a class="brand" href="#top"><span class="mark">↗</span><span>Estimate Reset</span></a>
+      <span>Early service test · Working name · No customer results claimed</span>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+</body>
+</html>
